@@ -1,0 +1,15 @@
+{
+  "name": "Moogle",
+  "version": "1.0.0",
+  "main": "./lib/Moogle.js",
+  "types": "./lib/Moogle.d.ts",
+  "repository": "git@github.com:drashland/Moogle.git",
+  "author": "Drash Land",
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc --project ."
+  },
+  "devDependencies": {
+    "typescript": "4.x"
+  }
+}
