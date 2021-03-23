@@ -1,6 +1,7 @@
 {
-  "name": "Moogle",
+  "name": "@drashland/Moogle",
   "version": "1.0.0",
+  "description": "The Moogle service to save your items and search for them, using terms and keep it fast!",
   "main": "./lib/Moogle.js",
   "types": "./lib/Moogle.d.ts",
   "repository": "git@github.com:drashland/Moogle.git",

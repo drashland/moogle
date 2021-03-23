@@ -1,0 +1,48 @@
+name: Continuous Integration
+
+on:
+  pull_request:
+    branches:
+      - master
+  push:
+    branches:
+      - master
+
+jobs:
+  linter:
+    # We only require one OS in linter
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Install Deno
+        uses: denolib/setup-deno@master
+
+      - name: Lint code
+        run: deno lint --unstable src/
+
+  formatter:
+    # We only require one OS in formatter
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Install Deno
+        uses: denolib/setup-deno@master
+
+      - name: Lint code
+        run: deno fmt --check src/
+  tests:
+    strategy:
+      fail-fast: true
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Install Deno
+        uses: denolib/setup-deno@master
+
+      - name: Unit Test
+        run: deno test tests/
