@@ -4,23 +4,9 @@ on:
   release:
     types:
       - created
-      - published
 
 jobs:
-  build:
-    if: ${{ github.event_name == "created" }}
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
-
-      - name: Install deps
-        run: yarn install
-
-      - name: Build
-        run: yarn build
   npm:
-    if: ${{ github.event_name == "published" }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -28,20 +14,15 @@ jobs:
       # Setup .npmrc file to publish to npm
       - uses: actions/setup-node@v2
         with:
-          registry-url: "https://registry.npmjs.org"
-      # Publish to npm
-      - run: yarn publish
+          registry-url: 'https://registry.npmjs.org'
+
+      - name: Install deps
+        run: yarn install
+
+      - name: Build
+        run: yarn build
+
+      - name: Publish
+        run: yarn publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTOMATION_TOKEN }}
-  eggs:
-    if: ${{ github.event_name == "published" }}
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: denolib/setup-deno@master
-      - name: Setup Eggs CLI
-        run: |
-          deno install -A -f --unstable -n eggs https://x.nest.land/eggs@0.3.3/eggs.ts
-          export PATH="/home/runner/.deno/bin:$PATH"
-          eggs link ${{ secrets.CI_NESTLAND_API_KEY }}
-          eggs publish --no-check --yes
