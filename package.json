@@ -1,10 +1,10 @@
 {
   "name": "@drashland/Moogle",
-  "version": "1.0.0",
-  "description": "The Moogle service to save your items and search for them, using terms and keep it fast!",
+  "version": "0.0.1",
+  "description": "An easy way to \"Google\" your \"Map\" using search terms",
   "main": "./lib/Moogle.js",
   "types": "./lib/Moogle.d.ts",
-  "repository": "git@github.com:drashland/Moogle.git",
+  "repository": "git@github.com:drashland/moogle.git",
   "author": "Drash Land",
   "license": "MIT",
   "scripts": {
