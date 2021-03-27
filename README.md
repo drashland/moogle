@@ -5,6 +5,14 @@ An easy way to "Google" your "Map" using search terms.
 The name came from that actually. You G**oogle** a **M**ap, giving you
 **Moogle**.
 
+## Table of Contents
+
+- [Rationale](#rationale)
+- [How It Works](#how-it-works)
+- [Guides](#guides)
+  - [Starting](#starting)
+  - [Creating the Moogle service](#creating-the-moogle-service)
+
 ## Rationale
 
 Everyone likes `Array`! But they come with a problem... If you want to find a
@@ -78,6 +86,14 @@ In the browser:
 
 In Node:
 
+   ```
+   # Using npm
+   $ npm install @drashland/moogle
+
+   # Using yarn
+   $ yarn add @drashland/moogle
+   ```
+
    ```javascript
    // JavaScript
    const Moogle = require("@drashland/moogle");
@@ -104,7 +120,9 @@ In Deno:
    const service = new Moogle<MyType>();
    ```
 
-### Creating the Moogle service (using TypeScript)
+### Creating the Moogle service
+
+*This uses TypeScript*
 
 1. Instantiate Moogle.
 
