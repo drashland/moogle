@@ -32,7 +32,7 @@ jobs:
 
       - name: Lint code
         run: deno fmt --check src/
-  tests:
+  tests_deno:
     strategy:
       fail-fast: true
       matrix:
@@ -45,4 +45,25 @@ jobs:
         uses: denolib/setup-deno@master
 
       - name: Unit Test
-        run: deno test tests/
+        run: deno test tests/deno/
+  tests_node:
+    strategy:
+      fail-fast: true
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+        # We only support until EOL
+        node: ['10', '12', '14', '15']
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Install Node
+        uses: actions/setup-node@v2
+        with:
+          node_version: ${{ matrix.node }}
+
+      - name: Install deps
+        run: yarn install
+
+      - name: Unit Test
+        run: yarn test

@@ -22,8 +22,8 @@
  * SOFTWARE.
  */
 
-import { Moogle } from "../mod.ts";
-import { assertEquals } from "../deps.ts";
+import { Moogle } from "../../src/Moogle.ts";
+import { assertEquals } from "./deps.ts";
 
 Deno.test({
   name: "adds an item to the index and lookup table",
