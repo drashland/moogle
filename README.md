@@ -23,7 +23,7 @@ Then let's fix it with a `Map`! Well, it's really fast if you already know the
 key, but what if you just know a bit of the key? You have to iterate over all
 the keys to find the ones that may match your key. It's a bummer.
 
-What `Moogle` does if joining the best of both worlds! Making it blazing fast!
+What `Moogle` does is joining the best of both worlds! Making it blazing fast!
 
 ## How It Works
 
@@ -38,7 +38,7 @@ its `lookup_table` property. When you add items to your lookup table via
 2. Adds the second argument you provide to `.addItem()` to the lookup table.
 
 The search term is what you can search for in the index. If your search term
-matches anything in the index, the `IndexService` will take the IDs associated
+matches anything in the index, `Moogle` will take the IDs associated
 with the search term and use them to target items in the lookup table.
 
 For example, if you call `.addItem(["hello"], "world")`, the `index` property

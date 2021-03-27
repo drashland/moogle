@@ -10,6 +10,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - id: get_version
+        uses: battila7/get-version-action@v2
       # Setup .npmrc file to publish to npm
       - uses: actions/setup-node@v2
         with:
@@ -19,8 +21,9 @@ jobs:
         run: yarn install
       - name: Build
         run: yarn build
+
       - name: Publish
-        run: yarn publish --access public
+        run: yarn publish --access public --new-version ${{ steps.get_version.outputs.version-without-v }}
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTOMATION_TOKEN }}
 
@@ -28,6 +31,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - id: get_version
+        uses: battila7/get-version-action@v2
       # Setup .npmrc file to publish to github
       - uses: actions/setup-node@v2
         with:
@@ -38,6 +43,6 @@ jobs:
       - name: Build
         run: yarn build
       - name: Publish
-        run: yarn publish --access public
+        run: yarn publish --access public --new-version ${{ steps.get_version.outputs.version-without-v }}
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
