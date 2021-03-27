@@ -10,6 +10,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+        with:
+          token: ${{ secrets.CI_USER_PAT }}
       - id: get_version
         uses: battila7/get-version-action@v2
       # Setup .npmrc file to publish to npm
@@ -31,6 +33,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+        with:
+          token: ${{ secrets.CI_USER_PAT }}
       - id: get_version
         uses: battila7/get-version-action@v2
       # Setup .npmrc file to publish to github
