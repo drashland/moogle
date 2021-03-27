@@ -3,8 +3,10 @@
     "target": "ES2015",
     "outDir": "./lib",
     "rootDir": "./src",
-    "declaration": true
+    "declaration": true,
+    "moduleResolution": "node",
+    "esModuleInterop": true
   },
   "include": ["./src/**/*.ts"],
-  "exclude": ["./tests"]
+  "exclude": ["./tests/**/*"]
 }
