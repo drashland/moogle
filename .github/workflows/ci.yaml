@@ -60,7 +60,7 @@ jobs:
       - name: Install Node
         uses: actions/setup-node@v2
         with:
-          node_version: ${{ matrix.node }}
+          node-version: ${{ matrix.node }}
 
       - name: Install deps
         run: yarn install
