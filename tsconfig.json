@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
-    "target": "ES2015",
+    "module": "UMD",
+    "target": "ES5",
     "rootDir": "./",
     "moduleResolution": "node",
     "esModuleInterop": true
