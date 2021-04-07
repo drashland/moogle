@@ -1,4 +1,4 @@
-name: Continuous Integration
+name: Master
 
 on:
   pull_request:
@@ -31,7 +31,8 @@ jobs:
         uses: denolib/setup-deno@master
 
       - name: Lint code
-        run: deno fmt --check src/
+        run: deno fmt --check
+
   tests_deno:
     strategy:
       fail-fast: true
@@ -46,6 +47,7 @@ jobs:
 
       - name: Unit Test
         run: deno test tests/deno/
+
   tests_node:
     strategy:
       fail-fast: true
