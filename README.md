@@ -100,45 +100,45 @@ Moogle works in the browser, Node and Deno! How to do it?
 
 In the browser:
 
-    ```html
-    <script src="https://unpkg.com/@drashland/moogle@0.0.1-alpha-6"></script>
-    ```
+```html
+<script src="https://unpkg.com/@drashland/moogle@0.0.1-alpha-6"></script>
+```
 
 In Node:
 
-    ```
-    # Using npm
-    $ npm install @drashland/moogle
+```
+# Using npm
+$ npm install @drashland/moogle
 
-    # Using yarn
-    $ yarn add @drashland/moogle
-    ```
+# Using yarn
+$ yarn add @drashland/moogle
+```
 
-    ```javascript
-    // JavaScript
-    const Moogle = require("@drashland/moogle");
-    const service = new Moogle();
-    ```
+```javascript
+// JavaScript
+const Moogle = require("@drashland/moogle");
+const service = new Moogle();
+```
 
-    ```typescript
-    // TypeScript
-    import { Moogle } from "@drashland/moogle";
-    const service = new Moogle<MyType>();
-    ```
+```typescript
+// TypeScript
+import { Moogle } from "@drashland/moogle";
+const service = new Moogle<MyType>();
+```
 
 In Deno:
 
-    ```javascript
-    // JavaScript
-    import { Moogle } from "https://deno.land/x/moogle@v0.0.1-alpha-6/mod.ts";
-    const service = new Moogle();
-    ```
+```javascript
+// JavaScript
+import { Moogle } from "https://deno.land/x/moogle@v0.0.1-alpha-6/mod.ts";
+const service = new Moogle();
+```
 
-    ```typescript
-    // TypeScript
-    import { Moogle } from "https://deno.land/x/moogle@v0.0.1-alpha-6/mod.ts";
-    const service = new Moogle<MyType>();
-    ```
+```typescript
+// TypeScript
+import { Moogle } from "https://deno.land/x/moogle@v0.0.1-alpha-6/mod.ts";
+const service = new Moogle<MyType>();
+```
 
 ### Creating the Moogle service
 
@@ -146,39 +146,39 @@ _This uses TypeScript_
 
 1. Instantiate Moogle.
 
-   ```typescript
-   // Create a simple Moogle that stores <unknown> values
-   const service = new Moogle();
-   // Create a Moogle that stores a specific value
-   const service = new Moogle<string>();
-   ```
+```typescript
+// Create a simple Moogle that stores <unknown> values
+const service = new Moogle();
+// Create a Moogle that stores a specific value
+const service = new Moogle<string>();
+```
 
 2. Add items to your lookup table.
 
-   ```typescript
-   service.addItem(["hello"], "world"); // adds ["hello", [0]] to the index
-   service.addItem(["again aga"], "again"); // adds ["again", [1]] and ["aga", [1]] to the index
-   service.addItem(["hello"], "something"); // changes ["hello", [0]] to ["hello", [0,2]] in the index
-   ```
+```typescript
+service.addItem(["hello"], "world"); // adds ["hello", [0]] to the index
+service.addItem(["again aga"], "again"); // adds ["again", [1]] and ["aga", [1]] to the index
+service.addItem(["hello"], "something"); // changes ["hello", [0]] to ["hello", [0,2]] in the index
+```
 
 3. Search your lookup table.
+ 
+```typescript
+const results = service.search("hel");
 
-   ```typescript
-   const results = service.search("hel");
-
-   console.log(results);
-   // outputs => Map {
-   //   0 => {
-   //     id: 0,
-   //     item: "world",
-   //     search_term: "hello",
-   //     search_input: "hel"
-   //   },
-   //   2 => {
-   //     id: 2,
-   //     item: "something",
-   //     search_term: "hello",
-   //     search_input: "hel"
-   //   },
-   // }
-   ```
+console.log(results);
+// outputs => Map {
+//   0 => {
+//     id: 0,
+//     item: "world",
+//     search_term: "hello",
+//     search_input: "hel"
+//   },
+//   2 => {
+//     id: 2,
+//     item: "something",
+//     search_term: "hello",
+//     search_input: "hel"
+//   },
+// }
+```
