@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
-    "target": "ES2015",
+    "module": "UMD",
+    "target": "ES5",
     "outDir": "./lib",
     "rootDir": "./src",
     "declaration": true,
