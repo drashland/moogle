@@ -23,7 +23,8 @@
 
 ---
 
-The name came from that actually. You G**oogle** a **M**ap, giving you **Moogle**!
+The name came from that actually. You G**oogle** a **M**ap, giving you
+**Moogle**!
 
 ## Table of Contents
 
