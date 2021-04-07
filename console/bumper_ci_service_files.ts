@@ -8,7 +8,7 @@ export const regexes = {
   const_statements: /version = ".+"/g,
   egg_json: /"version": ".+"/,
   import_export_statements: /moogle@v[0-9\.]+[0-9\.]+[0-9\.]/g,
-  import_export_statements_without_v: /moogle@v[0-9\.]+[0-9\.]+[0-9\.]/g,
+  import_export_statements_without_v: /moogle@[0-9\.]+[0-9\.]+[0-9\.]/g,
   yml_deno: /deno: \[".+"\]/g,
 };
 
