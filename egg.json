@@ -1,0 +1,19 @@
+{
+  "name": "moogle",
+  "description": "An easy way to 'Google' your 'Map' using search terms.",
+  "version": "0.0.1-alpha-6",
+  "stable": true,
+  "repository": "https://github.com/drashland/moogle",
+  "files": [
+    "./mod.ts",
+    "./src/*",
+    "./README.md"
+  ],
+  "entry": "./mod.ts",
+  "checkAll": false,
+  "unlisted": false,
+  "checkTests": false,
+  "check": true,
+  "homepage": "https://github.com/drashland/moogle",
+  "ignore": []
+}
