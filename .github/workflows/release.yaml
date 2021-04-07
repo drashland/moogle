@@ -23,6 +23,8 @@ jobs:
         run: |
           yarn build
           yarn publish --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTOMATION_TOKEN }}
 
   github:
     runs-on: ubuntu-latest
@@ -41,6 +43,8 @@ jobs:
         run: |
           yarn build
           yarn publish --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   publish-egg:
     runs-on: ubuntu-latest
