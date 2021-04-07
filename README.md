@@ -102,7 +102,7 @@ Moogle works in the browser, Node and Deno! How to do it?
 In the browser:
 
 ```html
-<script src="https://unpkg.com/@drashland/moogle@0.0.3"></script>
+<script src="https://unpkg.com/@drashland/moogle@0.0.4"></script>
 ```
 
 In Node:
@@ -131,13 +131,13 @@ In Deno:
 
 ```javascript
 // JavaScript
-import { Moogle } from "https://deno.land/x/moogle@v0.0.3/mod.ts";
+import { Moogle } from "https://deno.land/x/moogle@v0.0.4/mod.ts";
 const service = new Moogle();
 ```
 
 ```typescript
 // TypeScript
-import { Moogle } from "https://deno.land/x/moogle@v0.0.3/mod.ts";
+import { Moogle } from "https://deno.land/x/moogle@v0.0.4/mod.ts";
 const service = new Moogle<MyType>();
 ```
 
