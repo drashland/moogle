@@ -23,7 +23,6 @@
 
 ---
 
-
 The name came from that actually. You G**oogle** a **M**ap, giving you
 
 ## Table of Contents
@@ -59,34 +58,34 @@ its `lookup_table` property. When you add items to your lookup table via
 2. Adds the second argument you provide to `.addItem()` to the lookup table.
 
 The search term is what you can search for in the index. If your search term
-matches anything in the index, `Moogle` will take the IDs associated
-with the search term and use them to target items in the lookup table.
+matches anything in the index, `Moogle` will take the IDs associated with the
+search term and use them to target items in the lookup table.
 
 For example, if you call `.addItem(["hello"], "world")`, the `index` property
 will become the following...
 
-   ```
-   ["hello", [0]]
-   ```
+    ```
+    ["hello", [0]]
+    ```
 
 ...and the lookup table will become the following...
 
-   ```
-   [0, "world"]
-   ```
+    ```
+    [0, "world"]
+    ```
 
 This means you can search for the following strings ...
 
-   ```
-   h
-   he
-   hel
-   hell
-   hello
-   ```
+    ```
+    h
+    he
+    hel
+    hell
+    hello
+    ```
 
-...and they will all match `["hello", [0]]` in the `index` `Map`. The ID in
-the `Map` (`0` in this case) is used to target the lookup table via `.get()` --
+...and they will all match `["hello", [0]]` in the `index` `Map`. The ID in the
+`Map` (`0` in this case) is used to target the lookup table via `.get()` --
 returning an item from the lookup table without having to iterate through the
 entire lookup table in case it has millions of items.
 
@@ -101,49 +100,49 @@ Moogle works in the browser, Node and Deno! How to do it?
 
 In the browser:
 
-   ```html
-   <script src="https://unpkg.com/@drashland/moogle@0.0.1-alpha-6"></script>
-   ```
+    ```html
+    <script src="https://unpkg.com/@drashland/moogle@0.0.1-alpha-6"></script>
+    ```
 
 In Node:
 
-   ```
-   # Using npm
-   $ npm install @drashland/moogle
+    ```
+    # Using npm
+    $ npm install @drashland/moogle
 
-   # Using yarn
-   $ yarn add @drashland/moogle
-   ```
+    # Using yarn
+    $ yarn add @drashland/moogle
+    ```
 
-   ```javascript
-   // JavaScript
-   const Moogle = require("@drashland/moogle");
-   const service = new Moogle();
-   ```
+    ```javascript
+    // JavaScript
+    const Moogle = require("@drashland/moogle");
+    const service = new Moogle();
+    ```
 
-   ```typescript
-   // TypeScript
-   import { Moogle } from "@drashland/moogle";
-   const service = new Moogle<MyType>();
-   ```
+    ```typescript
+    // TypeScript
+    import { Moogle } from "@drashland/moogle";
+    const service = new Moogle<MyType>();
+    ```
 
 In Deno:
 
-   ```javascript
-   // JavaScript
-   import { Moogle } from "https://deno.land/x/moogle@v0.0.1-alpha-6/mod.ts";
-   const service = new Moogle();
-   ```
+    ```javascript
+    // JavaScript
+    import { Moogle } from "https://deno.land/x/moogle@v0.0.1-alpha-6/mod.ts";
+    const service = new Moogle();
+    ```
 
-   ```typescript
-   // TypeScript
-   import { Moogle } from "https://deno.land/x/moogle@v0.0.1-alpha-6/mod.ts";
-   const service = new Moogle<MyType>();
-   ```
+    ```typescript
+    // TypeScript
+    import { Moogle } from "https://deno.land/x/moogle@v0.0.1-alpha-6/mod.ts";
+    const service = new Moogle<MyType>();
+    ```
 
 ### Creating the Moogle service
 
-*This uses TypeScript*
+_This uses TypeScript_
 
 1. Instantiate Moogle.
 
