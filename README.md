@@ -1,9 +1,30 @@
-# Moogle
+<p align="center">
+  <!--<img height="200" src="./logo.svg" alt="Moogle logo">-->
+  <h1 align="center">Moogle</h1>
+</p>
+<p align="center">An easy way to "Google" your "Map" using search terms.</p>
+<p align="center">
+  <a href="https://github.com/drashland/moogle/releases">
+    <img src="https://img.shields.io/github/release/drashland/moogle.svg?color=bright_green&label=latest">
+  </a>
+  <a href="https://github.com/drashland/moogle/actions">
+    <img src="https://img.shields.io/github/workflow/status/drashland/moogle/master?label=ci">
+  </a>
+  <a href="https://discord.gg/SgejNXq">
+    <img src="https://img.shields.io/badge/chat-on%20discord-blue">
+  </a>
+  <a href="https://twitter.com/drash_land">
+    <img src="https://img.shields.io/twitter/url?label=%40drash_land&style=social&url=https%3A%2F%2Ftwitter.com%2Fdrash_land">
+  </a>
+  <!-- <a href="https://rb.gy/vxmeed">
+    <img src="https://img.shields.io/badge/Tutorials-YouTube-red">
+  </a> -->
+</p>
 
-An easy way to "Google" your "Map" using search terms.
+---
+
 
 The name came from that actually. You G**oogle** a **M**ap, giving you
-**Moogle**.
 
 ## Table of Contents
 
