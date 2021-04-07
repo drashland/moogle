@@ -162,7 +162,7 @@ service.addItem(["hello"], "something"); // changes ["hello", [0]] to ["hello", 
 ```
 
 3. Search your lookup table.
- 
+
 ```typescript
 const results = service.search("hel");
 
