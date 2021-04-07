@@ -4,7 +4,41 @@ on:
   create
 
 jobs:
+  npm:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          token: ${{ secrets.CI_USER_PAT }}
+      # Setup .npmrc file to publish to npm
+      - uses: actions/setup-node@v2
+        with:
+          registry-url: 'https://registry.npmjs.org'
+          scope: '@drashland'
+      - name: Install deps
+        run: yarn install
+      - name: Build & Publish
+        run: |
+          yarn build
+          yarn publish --access public
 
+  github:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          token: ${{ secrets.CI_USER_PAT }}
+      # Setup .npmrc file to publish to github
+      - uses: actions/setup-node@v2
+        with:
+          registry-url: 'https://npm.pkg.github.com'
+          scope: '@drashland'
+      - name: Install deps
+        run: yarn install
+      - name: Build & Publish
+        run: |
+          yarn build
+          yarn publish --access public
   # Make a PR to master from a new branch with changes, and delete the created one
   pre-release:
 
