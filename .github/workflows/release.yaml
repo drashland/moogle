@@ -19,10 +19,10 @@ jobs:
           scope: '@drashland'
       - name: Install deps
         run: yarn install
-      - name: Build & Publish
-        run: |
-          yarn build
-          yarn publish --access public
+      - name: Build
+        run: yarn build
+      - name: Publish
+        run: yarn publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTOMATION_TOKEN }}
 
@@ -39,10 +39,10 @@ jobs:
           scope: '@drashland'
       - name: Install deps
         run: yarn install
-      - name: Build & Publish
-        run: |
-          yarn build
-          yarn publish --access public
+      - name: Build
+        run: yarn build
+      - name: Publish
+        run: yarn publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
