@@ -9,7 +9,9 @@
   "license": "MIT",
   "scripts": {
     "test": "jest ./tests/node/",
-    "build": "tsc --project tsconfig-build.json"
+    "build:esm": "tsc --project tsconfig-build-esm.json",
+    "build:cjs": "tsc --project tsconfig-build-cjs.json",
+    "build": "yarn build:esm && yarn build:cjs"
   },
   "devDependencies": {
     "@types/jest": "26.x",

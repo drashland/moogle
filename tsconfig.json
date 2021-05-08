@@ -1,9 +1,11 @@
 {
   "compilerOptions": {
-    "module": "UMD",
-    "target": "ES5",
+    "target": "ES6",
     "rootDir": "./",
-    "moduleResolution": "node",
-    "esModuleInterop": true
-  }
+    "declaration": true,
+    "esModuleInterop": true,
+    "moduleResolution": "node"
+  },
+  "include": ["./src/**/*.ts"],
+  "exclude": ["./tests/**/*"]
 }
