@@ -102,7 +102,13 @@ Moogle works in the browser, Node and Deno! How to do it?
 In the browser:
 
 ```html
-<script src="https://unpkg.com/@drashland/moogle@0.0.7/lib/esm/Moogle.js"></script>
+<script type="module" src="myScript.js"></script>
+```
+
+```javascript
+// myScript.js
+import { Moogle } from "https://unpkg.com/@drashland/moogle@0.0.7/lib/esm/Moogle.js";
+const service = new Moogle();
 ```
 
 In Node:
@@ -117,28 +123,30 @@ $ yarn add @drashland/moogle
 
 ```javascript
 // JavaScript
-const Moogle = require("@drashland/moogle");
+const { Moogle } = require("@drashland/moogle");
 const service = new Moogle();
 ```
 
 ```typescript
 // TypeScript
 import { Moogle } from "@drashland/moogle";
-const service = new Moogle<MyType>();
+const serviceWithTypes = new Moogle<MyType>();
+const serviceWithoutTypes = new Moogle();
 ```
 
 In Deno:
 
 ```javascript
 // JavaScript
-import { Moogle } from "https://deno.land/x/moogle@v0.0.7/mod.ts";
+import { Moogle } from "https://unpkg.com/@drashland/moogle@0.0.7/lib/esm/Moogle.js";
 const service = new Moogle();
 ```
 
 ```typescript
 // TypeScript
 import { Moogle } from "https://deno.land/x/moogle@v0.0.7/mod.ts";
-const service = new Moogle<MyType>();
+const serviceWithTypes = new Moogle<MyType>();
+const serviceWithoutTypes = new Moogle();
 ```
 
 ### Creating the Moogle service

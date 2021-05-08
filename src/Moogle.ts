@@ -141,9 +141,9 @@ export class Moogle<T> {
     }
 
     const results = new Map<number, SearchResult<T>>();
-    this.index.forEach((ids: number[], key: string) => {
-      if (!key.includes(searchInput)) {
-        return;
+    for (const [key, ids] of this.index.entries()) {
+      if (key.includes(searchInput) === false) {
+        continue;
       }
       for (const id of ids) {
         results.set(id, {
@@ -153,7 +153,7 @@ export class Moogle<T> {
           searchInput: searchInput,
         });
       }
-    });
+    }
 
     this.cache.set(searchInput, results);
     return results;

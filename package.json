@@ -4,7 +4,6 @@
   "description": "An easy way to \"Google\" your \"Map\" using search terms",
   "main": "./lib/cjs/Moogle.js",
   "types": "./lib/cjs/Moogle.d.ts",
-  "module": "./lib/esm/Moogle.js",
   "repository": "git@github.com:drashland/moogle.git",
   "author": "Drash Land",
   "license": "MIT",

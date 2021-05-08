@@ -26,17 +26,56 @@ version-resolver:
 
 # What our release will look like. If no draft has been created, then this will be used, otherwise $CHANGES just gets addedd
 template: |
-  __Compatibility__
-
-  * Requires Deno v<DENO_VERSION> or higher
-  * Uses Deno std@<STD_VERSION>
-
   __Importing__
 
-  * Import this latest release by using the following in your project(s):
-    ```typescript
-    import { Drash } from "https://deno.land/x/drash@v$RESOLVED_VERSION/mod.ts";
-    ```
+  In the browser:
+
+  ```html
+  <script type="module" src="myScript.js"></script>
+  ```
+
+  ```javascript
+  // myScript.js
+  import { Moogle } from "https://unpkg.com/@drashland/moogle@$RESOLVED_VERSION/lib/esm/Moogle.js";
+  const service = new Moogle();
+  ```
+
+  In Node:
+
+  ```
+  # Using npm
+  $ npm install @drashland/moogle
+
+  # Using yarn
+  $ yarn add @drashland/moogle
+  ```
+
+  ```javascript
+  // JavaScript
+  const { Moogle } = require("@drashland/moogle");
+  const service = new Moogle();
+  ```
+
+  ```typescript
+  // TypeScript
+  import { Moogle } from "@drashland/moogle";
+  const serviceWithTypes = new Moogle<MyType>();
+  const serviceWithoutTypes = new Moogle();
+  ```
+
+  In Deno:
+
+  ```javascript
+  // JavaScript
+  import { Moogle } from "https://unpkg.com/@drashland/moogle@$RESOLVED_VERSION/lib/esm/Moogle.js";
+  const service = new Moogle();
+  ```
+
+  ```typescript
+  // TypeScript
+  import { Moogle } from "https://deno.land/x/moogle@v0.0.7/mod.ts";
+  const serviceWithTypes = new Moogle<MyType>();
+  const serviceWithoutTypes = new Moogle();
 
   __Updates__
 
