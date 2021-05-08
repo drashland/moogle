@@ -1,6 +1,6 @@
 {
   "name": "@drashland/moogle",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "An easy way to \"Google\" your \"Map\" using search terms",
   "main": "./lib/cjs/Moogle.js",
   "types": "./lib/cjs/Moogle.d.ts",
