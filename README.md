@@ -102,7 +102,7 @@ Moogle works in the browser, Node and Deno! How to do it?
 In the browser:
 
 ```html
-<script src="https://unpkg.com/@drashland/moogle@0.0.6"></script>
+<script src="https://unpkg.com/@drashland/moogle@0.0.6/lib/esm/Moogle.js"></script>
 ```
 
 In Node:
