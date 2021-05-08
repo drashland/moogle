@@ -107,7 +107,7 @@ In the browser:
 
 ```javascript
 // myScript.js
-import { Moogle } from "https://unpkg.com/@drashland/moogle@0.0.7/lib/esm/Moogle.js";
+import { Moogle } from "https://unpkg.com/@drashland/moogle@0.0.8/lib/esm/Moogle.js";
 const service = new Moogle();
 ```
 
@@ -138,13 +138,13 @@ In Deno:
 
 ```javascript
 // JavaScript
-import { Moogle } from "https://unpkg.com/@drashland/moogle@0.0.7/lib/esm/Moogle.js";
+import { Moogle } from "https://unpkg.com/@drashland/moogle@0.0.8/lib/esm/Moogle.js";
 const service = new Moogle();
 ```
 
 ```typescript
 // TypeScript
-import { Moogle } from "https://deno.land/x/moogle@v0.0.7/mod.ts";
+import { Moogle } from "https://deno.land/x/moogle@v0.0.8/mod.ts";
 const serviceWithTypes = new Moogle<MyType>();
 const serviceWithoutTypes = new Moogle();
 ```
