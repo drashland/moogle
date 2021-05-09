@@ -76,6 +76,7 @@ template: |
   import { Moogle } from "https://deno.land/x/moogle@v0.0.7/mod.ts";
   const serviceWithTypes = new Moogle<MyType>();
   const serviceWithoutTypes = new Moogle();
+  ```
 
   __Updates__
 
