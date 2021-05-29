@@ -326,34 +326,34 @@ Let us say you have instantiated Moogle via `const m = new Moogle()`. If you
 call `m.addItem(["hello", "world"], "world");`, Moogle will take the array of
 search terms and assign them an ID in the index like so:
 
-    ```
-    // This is what the index looks like as of now
-    ["hello", [0]]
-    ["world", [0]]
-    ```
+```
+// This is what the index looks like as of now
+["hello", [0]]
+["world", [0]]
+```
 
 After that, Moogle will take the ID it used for the search terms and assign it
 to the item like so:
 
-    ```
-    // This is what the lookup table looks like as of now
-    [0, "world"]
-    ```
+```
+// This is what the lookup table looks like as of now
+[0, "world"]
+```
 
 These associations mean you can search for the following strings ...
 
-    ```
-    h
-    he
-    hel
-    hell
-    hello
-    w
-    wo
-    wor
-    worl
-    world
-    ```
+```
+h
+he
+hel
+hell
+hello
+w
+wo
+wor
+worl
+world
+```
 
 ... and they will all match `["hello", [0]]` or `["world", [0]]` in the index.
 
@@ -371,7 +371,7 @@ Map {
     item: "world",
     searchInput: "hel",
     searchTerm: "hello"
-    }
+  }
 }
 ```
 
