@@ -26,25 +26,31 @@
 ## Quickstart
 
 Moogle works in Node, Deno, and in the browser. Follow the appropriate
-quickstart guide below to get started quickly.
+quickstart guide below to get started quickly. We have quickstart guides for:
 
-### Quickstart: Node
+- Node - JavaScript
+- Node - TypeScript
+- Deno - JavaScript
+- Deno - TypeScript
+- Browser
 
-You can import Moogle into your Node projects using JavaScript or TypeScript.
+### Quickstart: Node - JavaScript
 
-1. Install Moogle.
+1. Initialize your project as a Node project.
+
+   ```shell
+   $ npm init -y
+   ```
+
+   _Note: `-y` skips all of the prompts._
+
+2. Install Moogle.
 
    ```
-   # Using npm
    $ npm install @drashland/moogle
-
-   # Using yarn
-   $ yarn add @drashland/moogle
    ```
 
-2. Import Moogle.
-
-   If you want JavaScript, then use the following:
+3. Create your `app.js` file.
 
    ```javascript
    const { Moogle } = require("@drashland/moogle");
@@ -54,7 +60,39 @@ You can import Moogle into your Node projects using JavaScript or TypeScript.
    console.log(service.search("hel")); // Outputs: Map { 0 => { id: 0, item: "world", searchInput: "hel", searchTerm: "hello" } }
    ```
 
-   If you want TypeScript, then use the following:
+4. Run your `app.js` file.
+
+   ```shell
+   $ node app.js
+   ```
+
+   You should see the following output:
+
+   ```
+   Map(1) {
+     0 => { id: 0, item: 'world', searchTerm: 'hello', searchInput: 'hel' }
+   }
+   ```
+
+### Quickstart: Node - TypeScript
+
+1. Initialize your project as a Node project.
+
+   ```shell
+   $ npm init -y
+   ```
+
+   _Note: `-y` skips all of the prompts._
+
+2. Install Moogle, TypeScript, and `ts-node`.
+
+   ```
+   $ npm install @drashland/moogle
+   $ npm install typescript
+   $ npm install --global ts-node
+   ```
+
+3. Create your `app.ts` file.
 
    ```typescript
    import { Moogle } from "@drashland/moogle";
@@ -66,52 +104,106 @@ You can import Moogle into your Node projects using JavaScript or TypeScript.
    console.log(serviceWithoutTypes.search("hel")); // Outputs: Map { 0 => { id: 0, item: "world", searchInput: "hel", searchTerm: "hello" } }
    ```
 
-### Quickstart: Deno
+4. Run your `app.ts` file.
 
-You can import Moogle into your Deno projects using JavaScript or TypeScript.
+   ```shell
+   $ ts-node app.ts
+   ```
 
-If you want JavaScript, then use the following:
+   You should see the following output:
 
-```javascript
-import { Moogle } from "https://unpkg.com/@drashland/moogle@0.0.8/lib/esm/Moogle.js";
-const service = new Moogle();
-service.addItem(["hello"], "world");
+   ```
+   Map(1) {
+     0 => { id: 0, item: 'world', searchTerm: 'hello', searchInput: 'hel' }
+   }
+   ```
 
-console.log(service.search("hel")); // Outputs: Map { 0 => { id: 0, item: "world", searchInput: "hel", searchTerm: "hello" } }
-```
+### Quickstart: Deno - JavaScript
 
-If you want TypeScript, then use the following:
+1. Create your `app.js` file.
 
-```typescript
-import { Moogle } from "https://deno.land/x/moogle@v0.0.8/mod.ts";
-const serviceWithoutTypes = new Moogle();
-// Or use the following syntax to specify a type (in this case, it's a string)
-// const serviceWithTypes = new Moogle<string>();
-serviceWithoutTypes.addItem(["hello"], "world");
+   ```javascript
+   import { Moogle } from "https://unpkg.com/@drashland/moogle@0.0.8/lib/esm/Moogle.js";
+   const service = new Moogle();
+   service.addItem(["hello"], "world");
 
-console.log(serviceWithoutTypes.search("hel")); // Outputs: Map { 0 => { id: 0, item: "world", searchInput: "hel", searchTerm: "hello" } }
-```
+   console.log(service.search("hel")); // Outputs: Map { 0 => { id: 0, item: "world", searchInput: "hel", searchTerm: "hello" } }
+   ```
+
+2. Run your `app.js` file.
+
+   ```shell
+   $ deno run app.js
+   ```
+
+   You should see the following output:
+
+   ```
+   Map(1) {
+     0 => { id: 0, item: 'world', searchTerm: 'hello', searchInput: 'hel' }
+   }
+   ```
+
+### Quickstart: Deno - TypeScript
+
+1. Create your `app.ts` file.
+
+   ```typescript
+   import { Moogle } from "https://deno.land/x/moogle@v0.0.8/mod.ts";
+   const serviceWithoutTypes = new Moogle();
+   // Or use the following syntax to specify a type (in this case, it's a string)
+   // const serviceWithTypes = new Moogle<string>();
+   serviceWithoutTypes.addItem(["hello"], "world");
+
+   console.log(serviceWithoutTypes.search("hel")); // Outputs: Map { 0 => { id: 0, item: "world", searchInput: "hel", searchTerm: "hello" } }
+   ```
+
+2. Run your `app.ts` file.
+
+   ```shell
+   $ deno run app.ts
+   ```
+
+   You should see the following output:
+
+   ```
+   Map(1) {
+     0 => { id: 0, item: 'world', searchTerm: 'hello', searchInput: 'hel' }
+   }
+   ```
 
 ### Quickstart: Browser
 
-```html
-<script type="module">
-  import { Moogle } from "https://unpkg.com/@drashland/moogle@0.0.8/lib/esm/Moogle.js";
-  const service = new Moogle();
-  service.addItem(["hello"], "world");
+1. Create your `index.html` file.
 
-  console.log(service.search("hel")); // Outputs: Map { 0 => { id: 0, item: "world", searchInput: "hel", searchTerm: "hello" } }
-</script>
-```
+   ```html
+   <!doctype html>
+   <html>
+     <head>
+       <title>Moogle</title>
+     </head>
+     <body>
+       <p>Open up your console to see Moogle working.</p>
+       <script type="module">
+         import { Moogle } from "https://unpkg.com/@drashland/moogle@0.0.8/lib/esm/Moogle.js";
+         const service = new Moogle();
+         service.addItem(["hello"], "world");
 
-## Advanced Tutorials
+         console.log(service.search("hel")); // Outputs: Map { 0 => { id: 0, item: "world", searchInput: "hel", searchTerm: "hello" } }
+       </script>
+     </body>
+   </html>
+   ```
 
-### Advanced Tutorials: Creating A Search Form
+2. Open your `index.html` file so that it opens up in your browser and open up
+   the console to see Moogle working.
+
+## Advanced Tutorial: Creating A Search Form
 
 In this tutorial, you will create a search form where you can type in search
 inputs into a search field and see the results in a results field.
 
-1. Create an `index.html` file with the search and results fields. _Note: This
+1. Create your `index.html` file with the search and results fields. _Note: This
    file uses Tailwind CSS to make the UI look better._
 
    ```html
@@ -194,6 +286,9 @@ inputs into a search field and see the results in a results field.
    search field and results field work as expected.
 
 3. Open up the `index.html` to load it in your browser.
+
+4. Enter some search terms in the browser and see the results you get in the
+   results element.
 
 ## Why Use Moogle?
 
