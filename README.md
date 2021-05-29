@@ -1,3 +1,4 @@
+
 <p align="center">
   <!--<img height="200" src="./logo.svg" alt="Moogle logo">-->
   <h1 align="center">Moogle</h1>
@@ -23,59 +24,207 @@
 
 ---
 
-The name came from that actually. You G**oogle** a **M**ap, giving you
-**Moogle**!
+## Quickstart
 
-## Table of Contents
+Moogle works in Node, Deno, and in the browser. Follow the appropriate quickstart guide below to get started quickly.
 
-- [Rationale](#rationale)
-- [How It Works](#how-it-works)
-- [Guides](#guides)
-  - [Starting](#starting)
-  - [Creating the Moogle service](#creating-the-moogle-service)
+### Quickstart: Node
 
-## Rationale
+You can import Moogle into your Node projects using JavaScript or TypeScript.
 
-Everyone likes `Array`! But they come with a problem... If you want to find a
-specific object and you don't know the index where is stored in the array, you
-have to iterate over the array to find it, making it a really slow.
+1. Install Moogle.
 
-Then let's fix it with a `Map`! Well, it's really fast if you already know the
-key, but what if you just know a bit of the key? You have to iterate over all
-the keys to find the ones that may match your key. It's a bummer.
+    ```
+    # Using npm
+    $ npm install @drashland/moogle
 
-What `Moogle` does is joining the best of both worlds! Making it blazing fast!
+    # Using yarn
+    $ yarn add @drashland/moogle
+    ```
+
+2. Import Moogle.
+
+    If you want JavaScript, then use the following:
+
+    ```javascript
+    const { Moogle } = require("@drashland/moogle");
+    const service = new Moogle();
+    service.addItem(["hello"], "world");
+    
+    console.log(service.search("hel")); // Outputs: Map { 0 => { id: 0, item: "world", searchInput: "hel", searchTerm: "hello" } }
+    ```
+
+    If you want TypeScript, then use the following:
+
+    ```typescript
+    import { Moogle } from "@drashland/moogle";
+    const serviceWithoutTypes = new Moogle();
+    // Or use the following syntax to specify a type (in this case, it's a string)
+    // const serviceWithTypes = new Moogle<string>();
+    serviceWithoutTypes.addItem(["hello"], "world");
+    
+    console.log(serviceWithoutTypes.search("hel"));// Outputs: Map { 0 => { id: 0, item: "world", searchInput: "hel", searchTerm: "hello" } }
+    ```
+
+### Quickstart: Deno
+
+You can import Moogle into your Deno projects using JavaScript or TypeScript.
+
+If you want JavaScript, then use the following:
+
+```javascript
+import { Moogle } from "https://unpkg.com/@drashland/moogle@0.0.8/lib/esm/Moogle.js";
+const service = new Moogle();
+service.addItem(["hello"], "world");
+
+console.log(service.search("hel")); // Outputs: Map { 0 => { id: 0, item: "world", searchInput: "hel", searchTerm: "hello" } }
+```
+
+If you want TypeScript, then use the following:
+
+```typescript
+import { Moogle } from "https://deno.land/x/moogle@v0.0.8/mod.ts";
+const serviceWithoutTypes = new Moogle();
+// Or use the following syntax to specify a type (in this case, it's a string)
+// const serviceWithTypes = new Moogle<string>();
+serviceWithoutTypes.addItem(["hello"], "world");
+
+console.log(serviceWithoutTypes.search("hel")); // Outputs: Map { 0 => { id: 0, item: "world", searchInput: "hel", searchTerm: "hello" } }
+```
+
+### Quickstart: Browser
+
+```html
+<script type="module">
+  import { Moogle } from "https://unpkg.com/@drashland/moogle@0.0.8/lib/esm/Moogle.js";
+  const service = new Moogle();
+  service.addItem(["hello"], "world");
+
+  console.log(service.search("hel")); // Outputs: Map { 0 => { id: 0, item: "world", searchInput: "hel", searchTerm: "hello" } }
+</script>
+```
+
+## Advanced Tutorials
+
+### Advanced Tutorials: Creating A Search Form
+
+In this tutorial, you will create a search form where you can type in search inputs into a search field and see the results in a results field.
+
+1. Create an `index.html` file with the search and results fields. _Note: This file uses Tailwind CSS to make the UI look better._
+
+    ```html
+    <!doctype html>
+    <html class="w-full h-full">
+
+      <head>
+        <title>Moogle</title>
+        <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+      </head>
+
+      <body class="p-10 w-full h-full">
+        <h1 class="mb-5 text-2xl">Moogle</h1>
+        <div class="mb-10 w-full">
+          <p class="mb-2">Search</p>
+          <input
+            class="search border-solid border-2 mb-2 w-full p-2"
+            type="text"
+            placeholder="Search for something"
+          >
+          <p class="italic">Try the following searches: one, two, red, blue, fish, sh, ish, ue, ed</p>
+        </div>
+        <div class="w-full">
+          <p class="mb-2">Results</p>
+          <textarea
+            class="results font-mono text-xs border-solid border-2 p-2 w-full"
+            rows="15"
+          >[]</textarea>
+        </div>
+      </body>
+    </html>
+    ```
+2. Add the following script before the closing `</body>` tag.
+    ```html
+    <script type="module">
+      import { Moogle } from "https://unpkg.com/@drashland/moogle@0.0.8/lib/esm/Moogle.js";
+
+      // Set up Moogle and add some items you can search for
+      const service = new Moogle();
+      service.addItem(["one fish", "one", "fish"], "ONE_FISH");
+      service.addItem(["two fish", "two", "fish"], "TWO_FISH");
+      service.addItem(["red fish", "red", "fish"], "RED_FISH");
+      service.addItem(["blue fish", "blue", "fish"], "BLUE_FISH");
+
+      // Set up event handlers for the DOM
+      const searchElement = document.querySelector(".search");
+      searchElement.addEventListener("keyup", search);
+
+      /**
+       * Search for an item in Moogle's lookup table.
+       */
+      function search() {
+        let results = [];
+        const searchInput = searchElement.value.trim();
+
+        if (searchInput == "") {
+          return setResults(results);
+        }
+
+        const resultsFromService = service.search(searchInput);
+
+        resultsFromService.forEach((item) => {
+          results.push(item);
+        });
+
+        setResults(results);
+      }
+
+      /**
+       * Set the given results in the results textarea DOM element.
+       */
+      function setResults(results) {
+        const resultsElement = document.querySelector(".results");
+        resultsElement.value = JSON.stringify(results, null, 4);
+      }
+    </script>
+    ```
+    This script will set up Moogle, add items to Moogle's lookup table so that you can search for them, and set up event handlers in the DOM so that the search field and results field work as expected.
+
+4. Open up the `index.html` to load it in your browser.
+
+## Why Use Moogle?
+
+Everyone likes `Array`, but they come with a problem. If you want to find an item in an array and you don't know the index of that item, then you have to iterate over the entire array to find the item. This is slow.
+
+To make the process faster, you can use `Map`. You can quickly find an item in a `Map` if you know the key to the item. However, if you only know a bit of the key, then the process of finding that item is just like the array -- you have to iterate over the entire map to find your item.
+
+So... introducing Moogle! Moogle takes `Maps` to another level -- making them searchable and blazing fast!
 
 ## How It Works
 
-When `Moogle` is instantiated, it stores the lookup table you provide to it as
-its `lookup_table` property. When you add items to your lookup table via
-`.addItem()`:
+### At a high level
 
-1. Adds the first argument you provide to `.addItem()` as "search terms" and an
-   "ID" to its `index` property (a `Map` with search terms and IDs -- the IDs
-   are mapped to items in the lookup table); and
+When you instantiate the `Moogle` class, it sets up an index, a lookup table, and a cache table. From there, you add items to your index and lookup table using `addItem()`. On initial lookups, Moogle will search the lookup table. On subsequent lookups (using the same search terms), Moogle will use the cache table -- making subsequent searches faster. The index is where Moogle stores associations between search terms and items in the lookup table.
 
-2. Adds the second argument you provide to `.addItem()` to the lookup table.
+When you add items via `addItem()`, you are providing the function with two arguments: (1) an array of search terms and (2) the item associated with the search terms. This makes it so that you can search for the item using the search terms (or parts of the search terms if you do not know the full search terms).
 
-The search term is what you can search for in the index. If your search term
-matches anything in the index, `Moogle` will take the IDs associated with the
-search term and use them to target items in the lookup table.
+### At a low level
 
-For example, if you call `.addItem(["hello"], "world")`, the `index` property
-will become the following...
+Let us say you have instantiated Moogle via `const m = new Moogle()`. If you call `m.addItem(["hello", "world"], "world");`, Moogle will take the array of search terms and assign them an ID in the index like so:
 
     ```
+    // This is what the index looks like as of now
     ["hello", [0]]
+    ["world", [0]]
     ```
 
-...and the lookup table will become the following...
+After that, Moogle will take the ID it used for the search terms and assign it to the item like so:
 
     ```
+    // This is what the lookup table looks like as of now
     [0, "world"]
     ```
 
-This means you can search for the following strings ...
+These associations mean you can search for the following strings ...
 
     ```
     h
@@ -83,111 +232,28 @@ This means you can search for the following strings ...
     hel
     hell
     hello
+    w
+    wo
+    wor
+    worl
+    world
     ```
 
-...and they will all match `["hello", [0]]` in the `index` `Map`. The ID in the
-`Map` (`0` in this case) is used to target the lookup table via `.get()` --
-returning an item from the lookup table without having to iterate through the
-entire lookup table in case it has millions of items.
+... and they will all match `["hello", [0]]` or `["world", [0]]` in the index.
 
-You should note that each search is cached, so subsequent searches of the same
-search term are 2x (sometimes faster) faster than the first search.
-
-## Guides
-
-### Starting
-
-Moogle works in the browser, Node and Deno! How to do it?
-
-In the browser:
-
-```html
-<script type="module" src="myScript.js"></script>
-```
-
-```javascript
-// myScript.js
-import { Moogle } from "https://unpkg.com/@drashland/moogle@0.0.8/lib/esm/Moogle.js";
-const service = new Moogle();
-```
-
-In Node:
-
-```
-# Using npm
-$ npm install @drashland/moogle
-
-# Using yarn
-$ yarn add @drashland/moogle
-```
-
-```javascript
-// JavaScript
-const { Moogle } = require("@drashland/moogle");
-const service = new Moogle();
-```
+The assigned ID comes into play when the actual search in Moogle happens. Say you have searched for `hel`. Moogle will match `hel` to `["hello", [0]]` in the index. It will then take the ID associated with the search term and match it to an item in the lookup table using `lookupTable.get(0)`. In this case, the `.get()` call will be matched to `[0, "world"]` in the lookup table. So what you get back is a search result in the following schema:
 
 ```typescript
-// TypeScript
-import { Moogle } from "@drashland/moogle";
-const serviceWithTypes = new Moogle<MyType>();
-const serviceWithoutTypes = new Moogle();
+Map {
+  0 => {
+    id: 0,
+    item: "world",
+    searchInput: "hel",
+    searchTerm: "hello"
+    }
+}
 ```
 
-In Deno:
+In short, Moogle takes the search term, uses the ID associated with that search term in a `.get()` call on the lookup table, and returns the item associated with the ID -- all without having to iterate through the entire lookup table in case it has millions of items. This is why Moogle is quick.
 
-```javascript
-// JavaScript
-import { Moogle } from "https://unpkg.com/@drashland/moogle@0.0.8/lib/esm/Moogle.js";
-const service = new Moogle();
-```
-
-```typescript
-// TypeScript
-import { Moogle } from "https://deno.land/x/moogle@v0.0.8/mod.ts";
-const serviceWithTypes = new Moogle<MyType>();
-const serviceWithoutTypes = new Moogle();
-```
-
-### Creating the Moogle service
-
-_This uses TypeScript_
-
-1. Instantiate Moogle.
-
-```typescript
-// Create a simple Moogle that stores <unknown> values
-const service = new Moogle();
-// Create a Moogle that stores a specific value
-const service = new Moogle<string>();
-```
-
-2. Add items to your lookup table.
-
-```typescript
-service.addItem(["hello"], "world"); // adds ["hello", [0]] to the index
-service.addItem(["again aga"], "again"); // adds ["again", [1]] and ["aga", [1]] to the index
-service.addItem(["hello"], "something"); // changes ["hello", [0]] to ["hello", [0,2]] in the index
-```
-
-3. Search your lookup table.
-
-```typescript
-const results = service.search("hel");
-
-console.log(results);
-// outputs => Map {
-//   0 => {
-//     id: 0,
-//     item: "world",
-//     search_term: "hello",
-//     search_input: "hel"
-//   },
-//   2 => {
-//     id: 2,
-//     item: "something",
-//     search_term: "hello",
-//     search_input: "hel"
-//   },
-// }
-```
+Again, each search is cached, so subsequent searches of the same search terms are faster than the first search.
