@@ -57,7 +57,7 @@ quickstart guide below to get started quickly. We have quickstart guides for:
    const service = new Moogle();
    service.addItem(["hello"], "world");
 
-   console.log(service.search("hel")); // Outputs: Map { 0 => { id: 0, item: "world", searchInput: "hel", searchTerm: "hello" } }
+   console.log(service.search("hel"));
    ```
 
 4. Run your `app.js` file.
@@ -101,7 +101,7 @@ quickstart guide below to get started quickly. We have quickstart guides for:
    // const serviceWithTypes = new Moogle<string>();
    serviceWithoutTypes.addItem(["hello"], "world");
 
-   console.log(serviceWithoutTypes.search("hel")); // Outputs: Map { 0 => { id: 0, item: "world", searchInput: "hel", searchTerm: "hello" } }
+   console.log(serviceWithoutTypes.search("hel"));
    ```
 
 4. Run your `app.ts` file.
@@ -127,7 +127,7 @@ quickstart guide below to get started quickly. We have quickstart guides for:
    const service = new Moogle();
    service.addItem(["hello"], "world");
 
-   console.log(service.search("hel")); // Outputs: Map { 0 => { id: 0, item: "world", searchInput: "hel", searchTerm: "hello" } }
+   console.log(service.search("hel"));
    ```
 
 2. Run your `app.js` file.
@@ -155,7 +155,7 @@ quickstart guide below to get started quickly. We have quickstart guides for:
    // const serviceWithTypes = new Moogle<string>();
    serviceWithoutTypes.addItem(["hello"], "world");
 
-   console.log(serviceWithoutTypes.search("hel")); // Outputs: Map { 0 => { id: 0, item: "world", searchInput: "hel", searchTerm: "hello" } }
+   console.log(serviceWithoutTypes.search("hel"));
    ```
 
 2. Run your `app.ts` file.
@@ -189,7 +189,7 @@ quickstart guide below to get started quickly. We have quickstart guides for:
          const service = new Moogle();
          service.addItem(["hello"], "world");
 
-         console.log(service.search("hel")); // Outputs: Map { 0 => { id: 0, item: "world", searchInput: "hel", searchTerm: "hello" } }
+         console.log(service.search("hel"));
        </script>
      </body>
    </html>
@@ -287,8 +287,8 @@ inputs into a search field and see the results in a results field.
 
 3. Open up the `index.html` to load it in your browser.
 
-4. Enter some search terms in the browser and see the results you get in the
-   results element.
+4. Enter some search terms in the search field element and see the results you
+   get in the results element.
 
 ## Why Use Moogle?
 
