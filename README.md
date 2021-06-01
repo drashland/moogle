@@ -8,7 +8,7 @@
     <img src="https://img.shields.io/github/release/drashland/moogle.svg?color=bright_green&label=latest">
   </a>
   <a href="https://github.com/drashland/moogle/actions">
-    <img src="https://img.shields.io/github/workflow/status/drashland/moogle/master?label=ci">
+    <img src="https://img.shields.io/github/workflow/status/drashland/moogle/Main?label=ci">
   </a>
   <a href="https://discord.gg/SgejNXq">
     <img src="https://img.shields.io/badge/chat-on%20discord-blue">

@@ -1,12 +1,12 @@
-name: Master
+name: Main
 
 on:
   pull_request:
     branches:
-      - master
+      - main
   push:
     branches:
-      - master
+      - main
 
 jobs:
   linter:
