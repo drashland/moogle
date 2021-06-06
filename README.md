@@ -123,7 +123,7 @@ quickstart guide below to get started quickly. We have quickstart guides for:
 1. Create your `app.js` file.
 
    ```javascript
-   import { Moogle } from "https://unpkg.com/@drashland/moogle@0.0.8/lib/esm/Moogle.js";
+   import { Moogle } from "https://unpkg.com/@drashland/moogle@1.0.0/lib/esm/Moogle.js";
    const service = new Moogle();
    service.addItem(["hello"], "world");
 
@@ -149,7 +149,7 @@ quickstart guide below to get started quickly. We have quickstart guides for:
 1. Create your `app.ts` file.
 
    ```typescript
-   import { Moogle } from "https://deno.land/x/moogle@v0.0.8/mod.ts";
+   import { Moogle } from "https://deno.land/x/moogle@v1.0.0/mod.ts";
    const serviceWithoutTypes = new Moogle();
    // Or use the following syntax to specify a type (in this case, it's a string)
    // const serviceWithTypes = new Moogle<string>();
@@ -185,7 +185,7 @@ quickstart guide below to get started quickly. We have quickstart guides for:
      <body>
        <p>Open up your console to see Moogle working.</p>
        <script type="module">
-         import { Moogle } from "https://unpkg.com/@drashland/moogle@0.0.8/lib/esm/Moogle.js";
+         import { Moogle } from "https://unpkg.com/@drashland/moogle@1.0.0/lib/esm/Moogle.js";
          const service = new Moogle();
          service.addItem(["hello"], "world");
 
@@ -239,7 +239,7 @@ inputs into a search field and see the results in a results field.
 2. Add the following script before the closing `</body>` tag.
    ```html
    <script type="module">
-     import { Moogle } from "https://unpkg.com/@drashland/moogle@0.0.8/lib/esm/Moogle.js";
+     import { Moogle } from "https://unpkg.com/@drashland/moogle@1.0.0/lib/esm/Moogle.js";
 
      // Set up Moogle and add some items you can search for
      const service = new Moogle();
